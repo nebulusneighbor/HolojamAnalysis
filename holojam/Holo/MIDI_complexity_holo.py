@@ -51,13 +51,17 @@ def analyze_midi(file_path):
     complexity = lz_complexity(pitch_sequence)
     return complexity
 
-midi_folder = 'C:/Users/torin/holojam'
+print('debug 1')
+
+midi_folder = 'C:/Users/torin/holojam/Holo'
 midi_files = os.listdir(midi_folder)
 complexities = [analyze_midi(os.path.join(midi_folder, f)) for f in midi_files if f.endswith('.mid') or f.endswith('.midi')]
 
 mean_complexity = np.mean(complexities)
 median_complexity = np.median(complexities)
 std_dev = np.std(complexities)
+
+print('debug 2')
 
 print(f'Mean Complexity: {mean_complexity}')
 print(f'Median Complexity: {median_complexity}')
